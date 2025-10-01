@@ -20,6 +20,16 @@ class Question1 {
 
     async clickNo(page: Page) : Promise<void> {
 
+        await page.click('#response-1');
+        await page.click('.gem-c-button.govuk-button.gem-c-button--bottom-margin');
+
+        await Promise.all([
+            expect(page).toHaveURL('https://www.gov.uk/calculate-your-holiday-entitlement/y/regular'),
+        ]);
+    }
+
+    async clickYes(page: Page) : Promise<void> {
+
         await page.click('#response-0');
         await page.click('.gem-c-button.govuk-button.gem-c-button--bottom-margin');
 
