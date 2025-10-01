@@ -22,9 +22,14 @@ class Question4 {
         const input = '5'
         await page.fill('#response', input)
         await page.click('.gem-c-button.govuk-button.gem-c-button--bottom-margin')
+    }
+
+    async click1(page: Page) : Promise<void> {
+        await page.click('#response-1')
+        await page.click('.gem-c-button.govuk-button.gem-c-button--bottom-margin')
 
         await Promise.all([
-            expect(page).toHaveURL(`https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/days-worked-per-week/full-year/${input}.0`),
+            expect(page).toHaveURL('https://www.gov.uk/calculate-your-holiday-entitlement/y/irregular-hours-and-part-year/2024-02-02/hours-worked-per-week/starting'),
         ]);
     }
 }

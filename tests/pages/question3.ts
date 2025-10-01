@@ -26,6 +26,16 @@ class Question3 {
             expect(page).toHaveURL('https://www.gov.uk/calculate-your-holiday-entitlement/y/regular/days-worked-per-week/full-year'),
         ]);
     }
+
+    async click1(page: Page) : Promise<void> {
+        await page.click('#response-1')
+        await page.click('.gem-c-button.govuk-button.gem-c-button--bottom-margin')
+
+        await Promise.all([
+            expect(page).toHaveURL('https://www.gov.uk/calculate-your-holiday-entitlement/y/irregular-hours-and-part-year/2024-02-02/hours-worked-per-week'),
+        ]);
+    }
+    
 }
 
 export default Question3
